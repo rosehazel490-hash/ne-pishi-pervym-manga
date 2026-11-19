@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111114">
+  <title>Не пиши первым — манга</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="#home" aria-label="На главную" data-i18n-aria="homeLink">
+      <span class="wordmark-mark">漫</span>
+      <span>ЧИТАЛКА<span class="wordmark-dot">.</span></span>
+    </a>
+    <div class="topbar-tools">
+      <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language to Turkish" title="Switch language to Turkish">TR</button>
+      <a class="topbar-link" href="#reader"><span data-i18n="chapterLink">К главе</span> <span aria-hidden="true">↓</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-art hero-art-one" aria-hidden="true"></div>
+      <div class="hero-art hero-art-two" aria-hidden="true"></div>
+      <div class="hero-art hero-art-three" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> <span data-i18n="heroEyebrow">ВЕБ-МАНГА · 1 ГЛАВА</span></p>
+        <h1 id="hero-title"><span data-i18n="heroTitle">Не пиши<br>первым</span><span class="title-mark">.</span></h1>
+        <p class="hero-description" data-i18n="heroDescription">Одно сообщение. Одно правило. И бан, которого можно было избежать.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#reader"><span data-i18n="readManga">Читать мангу</span> <span aria-hidden="true">→</span></a>
+          <span class="chapter-length"><span data-i18n="chapterLength">12 страниц</span> <span aria-hidden="true">·</span> <span data-i18n="readingTime">~5 минут</span></span>
+        </div>
+      </div>
+      <div class="hero-caption"><span>01</span> <span data-i18n="heroCaption">ИСТОРИЯ О ПРАВИЛЕ, КОТОРОЕ ЛУЧШЕ НЕ НАРУШАТЬ</span></div>
+      <a class="scroll-cue" href="#reader" aria-label="Прокрутить к главе" data-i18n-aria="scrollToChapter"><span></span></a>
+    </section>
+
+    <section class="reader-section" id="reader" aria-label="Читалка манги" data-i18n-aria="readerLabel">
+      <div class="reader-bar">
+        <a class="reader-title" href="#home"><span class="reader-title-symbol">漫</span><span><span data-i18n="readerTitle">Не пиши первым</span> <small data-i18n="chapterNumber">Глава 01</small></span></a>
+        <div class="progress-group">
+          <span class="page-count" id="page-count">01 <span>/</span> 12</span>
+          <div class="progress-track" role="progressbar" aria-label="Прогресс чтения" data-i18n-aria="readingProgress" aria-valuemin="1" aria-valuemax="12" aria-valuenow="1" id="progress-track"><span id="progress-fill"></span></div>
+        </div>
+        <div class="reader-actions">
+          <button class="icon-button" id="zoom-out" type="button" aria-label="Уменьшить страницу" data-i18n-aria="zoomOut" title="Уменьшить (−)" data-i18n-title="zoomOutTitle">−</button>
+          <button class="icon-button zoom-label" id="zoom-label" type="button" title="Сбросить масштаб" data-i18n-title="resetZoom">100%</button>
+          <button class="icon-button" id="zoom-in" type="button" aria-label="Увеличить страницу" data-i18n-aria="zoomIn" title="Увеличить (+)" data-i18n-title="zoomInTitle">+</button>
+          <span class="action-divider"></span>
+          <button class="icon-button mode-button" id="mode-toggle" type="button" aria-label="Переключить режим чтения" data-i18n-aria="toggleReadingMode" title="Режим: лента" data-i18n-title="readingMode">▤</button>
+          <button class="icon-button" id="script-toggle" type="button" aria-label="Открыть текст для озвучки" data-i18n-aria="openNarration" title="Текст и озвучка" data-i18n-title="textAndAudio">♫</button>
+          <button class="icon-button" id="fullscreen-toggle" type="button" aria-label="Полноэкранный режим" data-i18n-aria="fullscreen" title="Полный экран (F)" data-i18n-title="fullscreenTitle">⛶</button>
+        </div>
+      </div>
+
+      <div class="reader-layout">
+        <div class="page-column">
+          <div class="reader-hint" id="reader-hint"><span class="hint-key">←</span><span class="hint-key">→</span> <span data-i18n="navigateHint">листать</span> <span class="hint-separator">·</span> <span class="hint-key" data-i18n="spaceKey">Пробел</span> <span data-i18n="speakHint">озвучить страницу</span></div>
+          <div class="pages" id="pages" aria-live="polite"></div>
+          <div class="end-card" id="end-card" hidden>
+            <span class="end-icon">完</span>
+            <p class="eyebrow" data-i18n="chapterEnd">КОНЕЦ ГЛАВЫ</p>
+            <h2 data-i18n="thanksForReading">Спасибо за чтение</h2>
+            <a class="button button-primary" href="#home" data-i18n="backToCover">На обложку ↑</a>
+          </div>
+          <nav class="page-navigation" aria-label="Навигация по страницам" data-i18n-aria="pageNavigation">
+            <button class="nav-button" id="previous-page" type="button"><span aria-hidden="true">←</span> <span data-i18n="previous">Назад</span></button>
+            <span class="nav-page" id="nav-page">Страница 1 из 12</span>
+            <button class="nav-button" id="next-page" type="button"><span data-i18n="next">Дальше</span> <span aria-hidden="true">→</span></button>
+          </nav>
+          <div class="thumbnail-strip" id="thumbnail-strip" aria-label="Выбрать страницу" data-i18n-aria="selectPage"></div>
+        </div>
+
+        <aside class="script-panel" id="script-panel" aria-label="Текст для озвучки" data-i18n-aria="narrationText" hidden>
+          <div class="script-panel-heading">
+            <div><p class="eyebrow" data-i18n="narration">ОЗВУЧКА</p><h2 data-i18n="pageText">Текст страницы</h2></div>
+            <button class="icon-button close-script" id="script-close" type="button" aria-label="Закрыть панель" data-i18n-aria="closePanel">×</button>
+          </div>
+          <p class="script-page-label" id="script-page-label">Страница 1</p>
+          <label class="sr-only" for="script-text" data-i18n="currentPageNarration">Текст для озвучки текущей страницы</label>
+          <textarea id="script-text" rows="8" placeholder="Вставьте сюда текст для этой страницы. Он сохранится в этом браузере." data-i18n-placeholder="scriptPlaceholder"></textarea>
+          <p class="script-note" data-i18n="scriptNote">Текст хранится только в этом браузере. Вставьте реплики — и читалка озвучит их.</p>
+          <label class="voice-label" for="voice-select" data-i18n="voice">Голос</label>
+          <select id="voice-select"><option value="">Автоматический</option></select>
+          <div class="audio-controls">
+            <button class="button button-primary audio-play" id="speak-button" type="button"><span aria-hidden="true">▶</span> <span data-i18n="speak">Озвучить</span></button>
+            <button class="icon-button" id="stop-speech" type="button" aria-label="Остановить озвучку" data-i18n-aria="stopNarration" title="Остановить" data-i18n-title="stopNarration">■</button>
+          </div>
+          <p class="audio-status" id="audio-status" aria-live="polite"></p>
+          <div class="script-shortcuts"><span><kbd data-i18n="spaceKey">Пробел</kbd> <span data-i18n="playback">воспроизвести</span></span><span><kbd>←</kbd><kbd>→</kbd> <span data-i18n="pages">страницы</span></span></div>
+        </aside>
+      </div>
+      <footer class="reader-footer"><span data-i18n="footerRead">ЧИТАЙ В СВОЁМ ТЕМПЕ</span><span data-i18n="footerSave">СОХРАНЯЙ ЛЮБИМЫЕ МОМЕНТЫ</span></footer>
+    </section>
+  </main>
+</body>
+</html>
